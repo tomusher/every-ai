@@ -1,8 +1,6 @@
-from typing import TYPE_CHECKING
-
 from .backends import registry
-from .backends.exceptions import InvalidAIBackendError
 from .backends.base import BackendProtocol
+from .backends.exceptions import InvalidAIBackendError
 
 VERSION = (1, 0, 0)
 __version__ = ".".join(map(str, VERSION))

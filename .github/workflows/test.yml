@@ -1,4 +1,4 @@
-name: AI CI
+name: EveryAI CI
 
 on:
   push:

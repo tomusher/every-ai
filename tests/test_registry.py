@@ -1,9 +1,7 @@
-import pytest
+from mock_backend import MockBackend
 
 import every_ai
 from every_ai.backends import registry
-
-from mock_backend import MockBackend
 
 
 def test_registering_mock_backend():
