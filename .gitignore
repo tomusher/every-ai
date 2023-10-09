@@ -1,0 +1,17 @@
+__pycache__/
+*.py[co]
+/build
+/dist
+/every_ai.egg-info
+/.coverage
+/htmlcov
+/.tox
+/venv
+/.vscode
+/site
+/node_modules
+/.devenv
+.devenv.flake.nix
+devenv.lock
+devenv.nix
+.env
