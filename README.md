@@ -15,7 +15,7 @@ Currently the supported backends are:
 
 To reate an instance of an EveryAI backend, use the `init` function:
 
-```
+```python
 import every_ai
 
 backend = every_ai.init("openai")
@@ -23,7 +23,7 @@ backend = every_ai.init("openai")
 
 Once you have a backend, you have access to methods depending on backend:
 
-```
+```python
 response = backend.chat("Tell me a joke")
 embedding = backend.embed(["Embed this content"])
 ```
@@ -38,7 +38,7 @@ The OpenAI backend supports both chat completions and embeddings. It can be init
 
 For example, to customise the OpenAI backend to use GPT4:
 
-```
+```python
 import every_ai
 
 backend = every_ai.init("openai", api_key="foo-bar-baz", chat_model="gpt-4")
@@ -53,7 +53,7 @@ The Antrophic backend only supports chat completions. It can be initialised with
 
 For example, to customise the Anthropic backend to use `claude-2`:
 
-```
+```python
 import every_ai
 
 backend = every_ai.init("anthropic", api_key="foo-bar-baz", chat_model="claude-2")
