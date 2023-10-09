@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PyPI version](https://badge.fury.io/py/every-ai.svg)](https://badge.fury.io/py/every-ai)
-[![ai CI](https://github.com/tomusher/every-ai/actions/workflows/test.yml/badge.svg)](https://github.com/tomusher/every-ai/actions/workflows/test.yml)
+[![EveryAI CI](https://github.com/tomusher/every-ai/actions/workflows/test.yml/badge.svg)](https://github.com/tomusher/every-ai/actions/workflows/test.yml)
 
 EveryAI intends to provide a unified interface to multiple AI services, offering a single API that consuming applications can use without needing to know the specifics of the underlying service.
 
@@ -50,6 +50,14 @@ The Antrophic backend only supports chat completions. It can be initialised with
 
 - `api_key` (required) - Your Anthropic API key
 - `chat_model` (default: `claude-instant-1`) - The Anthropic model to be used for chat completions, e.g. `claude-instant-1`, `claude-2`.
+
+For example, to customise the Anthropic backend to use `claude-2`:
+
+```
+import every_ai
+
+backend = every_ai.init("anthropic", api_key="foo-bar-baz", chat_model="claude-2")
+```
 
 ## Links
 
