@@ -21,7 +21,10 @@ classifiers = [
     "Programming Language :: Python :: 3.11",
 ]
 dynamic = ["version"]
-dependencies = []
+dependencies = [
+    "python>=3.8"
+]
+
 [project.optional-dependencies]
 openai = [
     "openai>=1.0.0b1"
