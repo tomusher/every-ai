@@ -1,9 +1,7 @@
-from tests.mock_backends import MockAllFeaturesBackend
-
 import every_ai
 from every_ai.backends import registry
 from every_ai.backends.openai import OpenAIBackend
-from every_ai.backends import EmbeddingAbility
+from tests.mock_backends import MockAllFeaturesBackend
 
 
 def test_registering_mock_backend():

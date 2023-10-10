@@ -1,4 +1,4 @@
-from typing import List, Optional, Generic, Protocol, TypeVar, runtime_checkable, Type
+from typing import Generic, List, Optional, Protocol, TypeVar, runtime_checkable
 
 ConfigClass = TypeVar("ConfigClass", covariant=True)
 

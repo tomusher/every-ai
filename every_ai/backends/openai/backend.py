@@ -3,7 +3,7 @@ from typing import List, Literal, Optional
 
 from openai import OpenAI
 
-from every_ai.backends import registry, AIBackend
+from every_ai.backends import AIBackend, registry
 from every_ai.backends.exceptions import InvalidBackendConfigurationError
 
 # Types
