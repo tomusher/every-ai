@@ -3,8 +3,8 @@ from typing import List, Literal, Optional
 
 from anthropic import AI_PROMPT, HUMAN_PROMPT, Anthropic
 
-from .. import registry
-from ..exceptions import InvalidBackendConfigurationError
+from every_ai.backends import registry, AIBackend
+from every_ai.backends.exceptions import InvalidBackendConfigurationError
 
 # Types
 ChatModels = Literal[
@@ -35,7 +35,7 @@ CHAT_MODELS = {
 
 
 @registry.register("anthropic")
-class AnthropicBackend:
+class AnthropicBackend(AIBackend):
     config_class = BackendConfig
 
     def __init__(self, config: dict):

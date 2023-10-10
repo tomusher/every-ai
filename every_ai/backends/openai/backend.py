@@ -3,8 +3,8 @@ from typing import List, Literal, Optional
 
 from openai import OpenAI
 
-from .. import registry
-from ..exceptions import InvalidBackendConfigurationError
+from every_ai.backends import registry, AIBackend
+from every_ai.backends.exceptions import InvalidBackendConfigurationError
 
 # Types
 ChatModels = Literal[
@@ -54,7 +54,7 @@ EMBEDDING_MODELS = {
 
 
 @registry.register("openai")
-class OpenAIBackend:
+class OpenAIBackend(AIBackend):
     config_class = BackendConfig
 
     def __init__(self, config: dict):
@@ -77,12 +77,13 @@ class OpenAIBackend:
             ]
             + [{"role": "user", "text": message} for message in user_messages],
         )
-        return completion.choices[0].message.content
+        return completion.choices[0].message.content or ""
 
     def embed(self, inputs: List[str]) -> List[List[float]]:
-        return self.client.embeddings.create(
-            model=self.config.embedding_model, inputs=inputs
+        embeddings = self.client.embeddings.create(
+            model=self.config.embedding_model, input=inputs
         )
+        return [embedding.embedding for embedding in embeddings.data]
 
     @property
     def embedding_output_dimensions(self) -> int:
