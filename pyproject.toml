@@ -53,12 +53,15 @@ name = "every_ai"
 
 [tool.pytest.ini_options]
 pythonpath = ["./", "./tests"]
+addopts = [
+    "--import-mode=importlib",
+]
 
 [tool.flit.sdist]
 include = [
 ]
 exclude = [
-    "every_ai/test",
+    "src/every_ai/test",
     "tests",
     "testmanage.py",
     ".*",
