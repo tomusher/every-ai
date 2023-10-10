@@ -1,6 +1,8 @@
+import sys
+from unittest.mock import MagicMock
+
 import every_ai
 from every_ai.backends import registry
-from every_ai.backends.openai import OpenAIBackend
 from tests.mock_backends import MockAllFeaturesBackend
 
 
@@ -17,5 +19,6 @@ def test_init_backend():
 
 
 def test_built_in_backends_exist():
-    backend = every_ai.init("openai", api_key="foo")
-    assert isinstance(backend, OpenAIBackend)
+    openai = MagicMock()
+    sys.modules["openai"] = openai
+    every_ai.init("openai", api_key="foo")

@@ -1,8 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Literal, Optional
 
-from anthropic import AI_PROMPT, HUMAN_PROMPT, Anthropic
-
 from every_ai.backends import AIBackend, registry
 from every_ai.backends.exceptions import InvalidBackendConfigurationError
 
@@ -40,6 +38,8 @@ class AnthropicBackend(AIBackend):
 
     def __init__(self, config: dict):
         try:
+            from anthropic import Anthropic
+
             self.config = self.config_class(**config)
             api_key = self.config.api_key
             self.client = Anthropic(api_key=api_key)
@@ -51,6 +51,8 @@ class AnthropicBackend(AIBackend):
     def chat(
         self, *, system_messages: Optional[List[str]] = None, user_messages: List[str]
     ) -> str:
+        from anthropic import AI_PROMPT, HUMAN_PROMPT
+
         completion = self.client.chat.completions.create(
             model=self.config.chat_model,
             prompt=f"{HUMAN_PROMPT} {' '.join(system_messages or [])} {' '.join(user_messages)}{AI_PROMPT}",

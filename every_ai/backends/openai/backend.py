@@ -1,8 +1,6 @@
 from dataclasses import dataclass
 from typing import List, Literal, Optional
 
-from openai import OpenAI
-
 from every_ai.backends import AIBackend, registry
 from every_ai.backends.exceptions import InvalidBackendConfigurationError
 
@@ -59,6 +57,8 @@ class OpenAIBackend(AIBackend):
 
     def __init__(self, config: dict):
         try:
+            from openai import OpenAI
+
             self.config = self.config_class(**config)
             api_key = self.config.api_key
             self.client = OpenAI(api_key=api_key)
