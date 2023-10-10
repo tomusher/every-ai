@@ -1,6 +1,6 @@
 from typing import List
 
-from every_ai.backends.base import AIBackend
+from every_ai import AIBackend
 
 
 class MockAllFeaturesBackend(AIBackend):

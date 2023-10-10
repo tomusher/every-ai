@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import List, Literal, Optional
 
-from every_ai.backends import AIBackend, registry
-from every_ai.backends.exceptions import InvalidBackendConfigurationError
+from every_ai import AIBackend, registry
+from every_ai.exceptions import InvalidBackendConfigurationError
 
 # Types
 ChatModels = Literal[

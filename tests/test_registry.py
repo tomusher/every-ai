@@ -2,7 +2,7 @@ import sys
 from unittest.mock import MagicMock
 
 import every_ai
-from every_ai.backends import registry
+from every_ai import registry
 
 from tests.mock_backends import MockAllFeaturesBackend
 
