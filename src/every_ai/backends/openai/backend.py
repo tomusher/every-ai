@@ -73,9 +73,10 @@ class OpenAIBackend(AIBackend):
         completion = self.client.chat.completions.create(
             model=self.config.chat_model,
             messages=[
-                {"role": "system", "text": message} for message in system_messages or []
+                {"role": "system", "content": message}
+                for message in system_messages or []
             ]
-            + [{"role": "user", "text": message} for message in user_messages],
+            + [{"role": "user", "content": message} for message in user_messages],
         )
         return completion.choices[0].message.content or ""
 
