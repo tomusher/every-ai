@@ -13,7 +13,7 @@ Currently the supported backends are:
 
 ## Usage
 
-To reate an instance of an EveryAI backend, use the `init` function:
+To create an instance of an EveryAI backend, use the `init` function:
 
 ```python
 import every_ai
@@ -46,7 +46,7 @@ backend = every_ai.init("openai", api_key="foo-bar-baz", chat_model="gpt-4")
 
 ### Anthropic
 
-The Antrophic backend only supports chat completions. It can be initialised with a dictionary containing the following settings:
+The Anthropic backend only supports chat completions. It can be initialised with a dictionary containing the following settings:
 
 - `api_key` (required) - Your Anthropic API key
 - `chat_model` (default: `claude-instant-1`) - The Anthropic model to be used for chat completions, e.g. `claude-instant-1`, `claude-2`.
